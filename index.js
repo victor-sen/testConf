@@ -104,7 +104,7 @@ app.get('/', (req, res)=> {
 			accessToken: conn.accessToken
 		};
 		// Redirect to app main page
-		return response.redirect('/index.html');
+		return response.redirect('/');
 	});
 });
 
