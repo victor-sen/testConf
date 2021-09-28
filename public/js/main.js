@@ -1,3 +1,50 @@
+window.addEventListener('load', (event) => {
+  var base_uri = `https://e2edemo.my.salesforce.com`
+  console.log(base_uri)
+  var speaker_data = null;
+  var session_data = null;
+  
+  var speaker_config = {
+    method: 'post',
+    url: `${base_uri}/services/data/v51.0/sobjects/Speaker__c?Content-Type=application/json&sObject=Speaker__c`,
+    headers: { 
+      'Authorization': 'Bearer 00D5f000003vd1P!ARUAQM_PXMDStCm6MClRaT6OTP1LnUb9gu7KzUWPFsysI9C4oVSfki6Xu5JHfYyb7qkANcBMHvKr.7cgqWwUeqChaujHR94D', 
+      'X-PrettyPrint': '1', 
+      'Content-Type': 'application/json'
+    },
+    data : speaker_data
+  };
+  
+  var session_config = {
+    method: 'post',
+    url: `${base_uri}/services/data/v51.0/sobjects/Session__c?Content-Type=application/json&sObject=Session__c`,
+    headers: { 
+      'Authorization': 'Bearer 00D5f000003vd1P!ARUAQM_PXMDStCm6MClRaT6OTP1LnUb9gu7KzUWPFsysI9C4oVSfki6Xu5JHfYyb7qkANcBMHvKr.7cgqWwUeqChaujHR94D', 
+      'X-PrettyPrint': '1', 
+      'Content-Type': 'application/json', 
+    },
+    data : session_data
+  };
+
+  axios(speaker_config)
+  .then(function (response) {
+    console.log(`Warmup Speaker call...`)
+  })
+  .catch(function (error) {
+    console.log('Something went wrong with Speaker POST...')
+    console.log(error);
+  });
+
+  axios(session_config)
+  .then(function (response) {
+    console.log(`Warmup Session call...`)
+  })
+  .catch(function (error) {
+    console.log('Something went wrong with Session POST...')
+    console.log(error);
+  });
+});
+
 document.getElementById('sfdc_btn').addEventListener('click', ()=>{
   let fn = document.getElementById('firstName').value;
   let ln = document.getElementById('lastName').value;
@@ -8,7 +55,6 @@ document.getElementById('sfdc_btn').addEventListener('click', ()=>{
   let diff = document.getElementById('difficulty').value;
   let sType = document.getElementById('sessionType').value;
 
-  // // alert('You clicked me.')
   var speaker_data = JSON.stringify({
     "Bio__c": bio,
     "First_Name__c": fn,
@@ -25,9 +71,9 @@ document.getElementById('sfdc_btn').addEventListener('click', ()=>{
   
   var speaker_config = {
     method: 'post',
-    url: 'https://provar62-dev-ed.my.salesforce.com/services/data/v51.0/sobjects/Speaker__c?Content-Type=application/json&sObject=Speaker__c',
+    url: `${base_uri}/services/data/v51.0/sobjects/Speaker__c?Content-Type=application/json&sObject=Speaker__c`,
     headers: { 
-      'Authorization': 'Bearer 00D5e000000Kx3w!AQUAQHKpWkO64KJoZ5RjkwOU3.S0j2U0oMICoDZTvEWQl5k6uhdp2MLkBQs788WUdStu0UNcOM9xZd39O4SgXkFQ3_JoNyZU', 
+      'Authorization': 'Bearer 00D5f000003vd1P!ARUAQM_PXMDStCm6MClRaT6OTP1LnUb9gu7KzUWPFsysI9C4oVSfki6Xu5JHfYyb7qkANcBMHvKr.7cgqWwUeqChaujHR94D', 
       'X-PrettyPrint': '1', 
       'Content-Type': 'application/json'
     },
@@ -36,9 +82,9 @@ document.getElementById('sfdc_btn').addEventListener('click', ()=>{
   
   var session_config = {
     method: 'post',
-    url: 'https://provar62-dev-ed.my.salesforce.com/services/data/v51.0/sobjects/Session__c?Content-Type=application/json&sObject=Session__c',
+    url: `${base_uri}/services/data/v51.0/sobjects/Session__c?Content-Type=application/json&sObject=Session__c`,
     headers: { 
-      'Authorization': 'Bearer 00D5e000000Kx3w!AQUAQHKpWkO64KJoZ5RjkwOU3.S0j2U0oMICoDZTvEWQl5k6uhdp2MLkBQs788WUdStu0UNcOM9xZd39O4SgXkFQ3_JoNyZU', 
+      'Authorization': 'Bearer 00D5f000003vd1P!ARUAQM_PXMDStCm6MClRaT6OTP1LnUb9gu7KzUWPFsysI9C4oVSfki6Xu5JHfYyb7qkANcBMHvKr.7cgqWwUeqChaujHR94D', 
       'X-PrettyPrint': '1', 
       'Content-Type': 'application/json', 
     },
