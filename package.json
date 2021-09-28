@@ -1,21 +1,21 @@
 {
-  "name": "js_test_framework",
+  "name": "testConf Application",
   "version": "1.0.0",
-  "description": "This is a sample application that utilizes jasmine, mocha, and chai as Javascript testing frameworks",
+  "description": "This is a sample application that for the SE team at Provar.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rodriggj/sfdc.git"
+    "url": "git+https://github.com/rodriggj/testConf.git"
   },
   "author": "gjr",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rodriggj/sfdc/issues"
+    "url": "https://github.com/rodriggj/testConf/issues"
   },
-  "homepage": "https://github.com/rodriggj/sfdc#readme",
+  "homepage": "https://github.com/rodriggj/testConf#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
