@@ -56,6 +56,7 @@ app.use(
 }
 
 function resumeSalesforceConnection(session) {
+  console.log(session.sfdcAuth.accessToken)
 	return new jsforce.Connection({
 		instanceUrl: session.sfdcAuth.instanceUrl,
 		accessToken: session.sfdcAuth.accessToken,
