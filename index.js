@@ -65,6 +65,9 @@ function resumeSalesforceConnection(session) {
 
 // Routes
 
+/**
+ * Render splash page
+ */
 app.get('/', (req, res)=> {
   res.render('index')
 })
@@ -76,6 +79,57 @@ app.get('/', (req, res)=> {
 	// Redirect to Salesforce login/authorization page
 	response.redirect(oauth2.getAuthorizationUrl({ scope: 'api' }));
 });
+
+/**
+ * Endpoint for retrieving currently connected user
+ */
+ app.get('/auth/whoami', function(request, response) {
+	const session = getSession(request, response);
+	if (session == null) {
+		return;
+	}
+
+	// Request session info from Salesforce
+	const conn = resumeSalesforceConnection(session);
+	conn.identity(function(error, res) {
+		response.send(res);
+	});
+});
+
+/**
+ * Logout endpoint
+ */
+ app.get('/auth/logout', function(request, response) {
+	const session = getSession(request, response);
+	if (session == null) return;
+
+	// Revoke OAuth token
+	const conn = resumeSalesforceConnection(session);
+	conn.logout(function(error) {
+		if (error) {
+			console.error('Salesforce OAuth revoke error: ' + JSON.stringify(error));
+			response.status(500).json(error);
+			return;
+		}
+
+		// Destroy server-side session
+		session.destroy(function(error) {
+			if (error) {
+				console.error('Salesforce session destruction error: ' + JSON.stringify(error));
+			}
+		});
+
+		// Redirect to app main page
+		return response.redirect('/');
+	});
+});
+
+/**
+ * Render the SFDC Speaker and Session Sign up details
+ */
+app.get('/form', (req, res) => {
+  res.render('form')
+})
 
 /**
  * Login callback endpoint (only called by Salesforce)
@@ -105,80 +159,6 @@ app.get('/', (req, res)=> {
 		};
 		// Redirect to app main page
 		return response.redirect('/');
-	});
-});
-
-app.get('/form', (req, res) => {
-    res.render('form')
-})
-
-app.get('/redirect', (req, res) => {
-    const oauth2 = new jsforce.OAuth2({
-        clientId: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET_ID,
-        redirectUri: `${req.protocol}://${req.get('host')}/${process.env.REDIRECT_URI}`
-      });
-      const conn = new jsforce.Connection({ oauth2 : oauth2 });
-      conn.authorize(req.query.code, function(err, userInfo) {
-        if (err) {
-          return console.error(err);
-        }
-        const conn2 = new jsforce.Connection({
-          instanceUrl : conn.instanceUrl,
-          accessToken : conn.accessToken
-        });
-        conn2.identity(function(err, res) {
-          if (err) { return console.error(err); }
-          console.log("user ID: " + res.user_id);
-          console.log("organization ID: " + res.organization_id);
-          console.log("username: " + res.username);
-          console.log("display name: " + res.display_name);
-        });
-      });
-      res.render('index');
-})
-
-/**
- * Logout endpoint
- */
- app.get('/auth/logout', function(request, response) {
-	const session = getSession(request, response);
-	if (session == null) return;
-
-	// Revoke OAuth token
-	const conn = resumeSalesforceConnection(session);
-	conn.logout(function(error) {
-		if (error) {
-			console.error('Salesforce OAuth revoke error: ' + JSON.stringify(error));
-			response.status(500).json(error);
-			return;
-		}
-
-		// Destroy server-side session
-		session.destroy(function(error) {
-			if (error) {
-				console.error('Salesforce session destruction error: ' + JSON.stringify(error));
-			}
-		});
-
-		// Redirect to app main page
-		return response.redirect('/index.html');
-	});
-});
-
-/**
- * Endpoint for retrieving currently connected user
- */
- app.get('/auth/whoami', function(request, response) {
-	const session = getSession(request, response);
-	if (session == null) {
-		return;
-	}
-
-	// Request session info from Salesforce
-	const conn = resumeSalesforceConnection(session);
-	conn.identity(function(error, res) {
-		response.send(res);
 	});
 });
 
