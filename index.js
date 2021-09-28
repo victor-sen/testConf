@@ -10,7 +10,7 @@ const cors = require('cors');
 // Env Variables
 dotenv.config({path: './config/config.env'});
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 // Logger
 if(process.env.NODE_ENV === 'development'){
@@ -165,5 +165,5 @@ app.get('/form', (req, res) => {
 
 // Server
 app.listen(port, ()=>{
-    console.log(colors.magenta(`Server is in ${process.env.NODE_ENV} mode and listening on port ${port}.`))
+    console.log(colors.magenta(`Server is listening on port ${port}.`))
 })
