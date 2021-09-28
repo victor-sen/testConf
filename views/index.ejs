@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Javascript Test Framework</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.7.1/jasmine.min.js">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+        <script data-main="scripts" src="node_modules/requirejs/require.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="./css/main.css">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container py-3">
+            <header>
+                <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+                    <a href="/" class="d-flex align-itmes-center text-dark text-decoration-none">
+                        <img src="./imgs/Hexet1.svg" width="40" height="40" class="me-2" viewBox="0 0 118 94" role="img">
+                        <span class="fs-4">Conference Application</span>
+                    </a>
+                    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+                        <a class="me-3 py-2 text-dark text-decoration-none" href="#">Agenda</a>
+                        <a class="me-3 py-2 text-dark text-decoration-none" href="#">Speakers</a>
+                        <a class="me-3 py-2 text-dark text-decoration-none" href="#">Sponsors</a>
+                        <a class="me-3 py-2 text-dark text-decoration-none" href="#">About</a>
+                    </nav>
+                </div>
+                <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                    <h1 class="display-4 fw-normal"><span class="title">TEST</span><span class="pink-word">con:</span></h1>
+                    <hr class="line">
+                    <hr class="line">
+                    <p class="fs-5 text-muted">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam expedita mollitia esse iste optio eum ex porro deleniti ducimus dicta consequatur impedit fuga repellat sunt error, nulla maiores? Esse iste optio eum ex porro deleniti ducimus dicta consequatur impedit fuga repellat sunt error, nulla maioresIusto, nisi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div>
+            </header>
+            <main>
+                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Key Note</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">Widest Reach</h1>
+                                <p>Enjoy access to all Conference attendees with Center Stage forum for a dedicated 45 minute session, with introduction from Primary Corporate Sponsor.</p>
+                            </div>
+                            <button onclick="window.location.href='/form'" type="button" class="w-100 btn btn-lg btn-outline-primary">Submit Application</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Dedicated Session</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">Targeted Audience</h1>
+                                <p>Present detailed discussion with industry examples, topical excercies, and a captivated audience of attendees who have sought out your paticular topical area of expertise.</p>
+                            </div>
+                            <button onclick="window.location.href='/form'" type="button" class="w-100 btn btn-lg btn-outline-primary">Submit Application</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Training</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">Breakout / Lab</h1>
+                                <p>Excercise detailed workshops with industry examples, pre-populated scenarios, with a room full of attendees intent on actually executing examples, vinettes, and or dedicated excercises.</p>
+                            </div>
+                            <button onclick="window.location.href='/form'" type="button" class="w-100 btn btn-lg btn-outline-primary">Submit Application</button>
+                        </div>
+                    </div>
+                </div>
+                <hr class="line">
+                <hr class="line">
+                <h2 class="display-6 text-center mb-4"><span class="pink-word">Compare Speaking Opportunties</span></h2>
+                <div class="table-responsive">
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th style="width:34%;"></th>
+                                <th style="width:22%;">Breakout / Lab</th>
+                                <th style="width:22%;">Dedicated Session</th>
+                                <th style="width:22%;">KeyNote</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="text-start">Public Sessions</th>
+                                <td>X</td>
+                                <td>X</td>
+                                <td>X</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-start">Private Sessions</th>
+                                <td></td>
+                                <td>X</td>
+                                <td>X</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="text-start">Access to Speakers</th>
+                                <td>X</td>
+                                <td>X</td>
+                                <td>X</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-start">Presentation Materials</th>
+                                <td></td>
+                                <td>X</td>
+                                <td>X</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-start">Private Q&A Sessions</th>
+                                <td></td>
+                                <td></td>
+                                <td>X</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="text-start">After Party</th>
+                                <td></td>
+                                <td></td>
+                                <td>X</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+            <footer class="pt-4 my-md-5 pt-md-5 border-top">
+                <div class="row">
+                    <div class="col-12 col-md">
+                        <img src="./imgs/provar_logo.png" alt="Provar Icon">
+                        <div>
+                            <small>2021</small>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md">
+                        <h5>Features</h5>
+                        <ul class="list-unstyled text-small">
+                            <li class="mb-1">Cool Stuff</li>
+                            <li class="mb-1">Random Feature</li>
+                            <li class="mb-1">Team Feature</li>
+                            <li class="mb-1">Stuff for Testers</li>
+                            <li class="mb-1">Another Thing</li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md">
+                        <h5>Resources</h5>
+                        <ul class="list-unstyled text-small">
+                            <li class="mb-1">Resource</li>
+                            <li class="mb-1">Resource Name</li>
+                            <li class="mb-1">Another Resource</li>
+                            <li class="mb-1">Yet Another</li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md">
+                        <h5>About</h5>
+                        <ul class="list-unstyled text-small">
+                            <li class="mb-1">Team</li>
+                            <li class="mb-1">Locations</li>
+                            <li class="mb-1">Privacy</li>
+                            <li class="mb-1">Terms</li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.7.1/jasmine.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.7.1/jasmine-html.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.7.1/boot.js"></script> -->
+    </body>
+</html>
+
