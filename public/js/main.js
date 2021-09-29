@@ -1,14 +1,15 @@
+const SF_BASE_URI = `https://e2edemo.my.salesforce.com`
+const SF_BEARER_TOKEN = `00D5f000003vd1P!ARUAQAah52b78.o5okzntFOKtPPPGzAPaXxifiZpvgVZ4_jHBHAs5zXz1DkBVMcEjpV6E.vsV44H53ecwuY45ibwGTm1_L6k`
+
 window.addEventListener('load', (event) => {
-  var base_uri = `https://e2edemo.my.salesforce.com`
-  console.log(base_uri)
   var speaker_data = null;
   var session_data = null;
   
   var speaker_config = {
     method: 'post',
-    url: `${base_uri}/services/data/v51.0/sobjects/Speaker__c?Content-Type=application/json&sObject=Speaker__c`,
+    url: `${SF_BASE_URI}/services/data/v51.0/sobjects/Speaker__c?Content-Type=application/json&sObject=Speaker__c`,
     headers: { 
-      'Authorization': 'Bearer 00D5f000003vd1P!ARUAQM_PXMDStCm6MClRaT6OTP1LnUb9gu7KzUWPFsysI9C4oVSfki6Xu5JHfYyb7qkANcBMHvKr.7cgqWwUeqChaujHR94D', 
+      'Authorization': `Bearer ${SF_BEARER_TOKEN}`, 
       'Access-Control-Allow-Origin': '*',
       'X-PrettyPrint': '1', 
       'Content-Type': 'application/json'
@@ -18,9 +19,9 @@ window.addEventListener('load', (event) => {
   
   var session_config = {
     method: 'post',
-    url: `${base_uri}/services/data/v51.0/sobjects/Session__c?Content-Type=application/json&sObject=Session__c`,
+    url: `${SF_BASE_URI}/services/data/v51.0/sobjects/Session__c?Content-Type=application/json&sObject=Session__c`,
     headers: { 
-      'Authorization': 'Bearer 00D5f000003vd1P!ARUAQM_PXMDStCm6MClRaT6OTP1LnUb9gu7KzUWPFsysI9C4oVSfki6Xu5JHfYyb7qkANcBMHvKr.7cgqWwUeqChaujHR94D', 
+      'Authorization': `Bearer ${SF_BEARER_TOKEN}`, 
       'Access-Control-Allow-Origin': '*',
       'X-PrettyPrint': '1', 
       'Content-Type': 'application/json', 
@@ -73,9 +74,9 @@ document.getElementById('sfdc_btn').addEventListener('click', ()=>{
   
   var speaker_config = {
     method: 'post',
-    url: `${base_uri}/services/data/v51.0/sobjects/Speaker__c?Content-Type=application/json&sObject=Speaker__c`,
+    url: `${SF_BASE_URI}/services/data/v51.0/sobjects/Speaker__c?Content-Type=application/json&sObject=Speaker__c`,
     headers: { 
-      'Authorization': 'Bearer 00D5f000003vd1P!ARUAQM_PXMDStCm6MClRaT6OTP1LnUb9gu7KzUWPFsysI9C4oVSfki6Xu5JHfYyb7qkANcBMHvKr.7cgqWwUeqChaujHR94D', 
+      'Authorization': `Bearer ${SF_BEARER_TOKEN}`, 
       'Access-Control-Allow-Origin': '*',
       'X-PrettyPrint': '1', 
       'Content-Type': 'application/json'
@@ -85,9 +86,9 @@ document.getElementById('sfdc_btn').addEventListener('click', ()=>{
   
   var session_config = {
     method: 'post',
-    url: `${base_uri}/services/data/v51.0/sobjects/Session__c?Content-Type=application/json&sObject=Session__c`,
+    url: `${SF_BASE_URI}/services/data/v51.0/sobjects/Session__c?Content-Type=application/json&sObject=Session__c`,
     headers: { 
-      'Authorization': 'Bearer 00D5f000003vd1P!ARUAQM_PXMDStCm6MClRaT6OTP1LnUb9gu7KzUWPFsysI9C4oVSfki6Xu5JHfYyb7qkANcBMHvKr.7cgqWwUeqChaujHR94D', 
+      'Authorization': `Bearer ${SF_BEARER_TOKEN}`, 
       'Access-Control-Allow-Origin': '*',
       'X-PrettyPrint': '1', 
       'Content-Type': 'application/json', 
@@ -115,3 +116,5 @@ document.getElementById('sfdc_btn').addEventListener('click', ()=>{
     console.log(error);
   });
 })
+
+console.log(`BaseURI: ${SF_BASE_URI} BearerToken: ${SF_BEARER_TOKEN}`)
