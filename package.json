@@ -1,5 +1,5 @@
 {
-  "name": "testConf Application",
+  "name": "testconf",
   "version": "1.0.0",
   "description": "This is a sample application that for the SE team at Provar.",
   "main": "index.js",
