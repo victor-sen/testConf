@@ -9,6 +9,7 @@ window.addEventListener('load', (event) => {
     url: `${base_uri}/services/data/v51.0/sobjects/Speaker__c?Content-Type=application/json&sObject=Speaker__c`,
     headers: { 
       'Authorization': 'Bearer 00D5f000003vd1P!ARUAQM_PXMDStCm6MClRaT6OTP1LnUb9gu7KzUWPFsysI9C4oVSfki6Xu5JHfYyb7qkANcBMHvKr.7cgqWwUeqChaujHR94D', 
+      'Access-Control-Allow-Origin': '*',
       'X-PrettyPrint': '1', 
       'Content-Type': 'application/json'
     },
@@ -20,6 +21,7 @@ window.addEventListener('load', (event) => {
     url: `${base_uri}/services/data/v51.0/sobjects/Session__c?Content-Type=application/json&sObject=Session__c`,
     headers: { 
       'Authorization': 'Bearer 00D5f000003vd1P!ARUAQM_PXMDStCm6MClRaT6OTP1LnUb9gu7KzUWPFsysI9C4oVSfki6Xu5JHfYyb7qkANcBMHvKr.7cgqWwUeqChaujHR94D', 
+      'Access-Control-Allow-Origin': '*',
       'X-PrettyPrint': '1', 
       'Content-Type': 'application/json', 
     },
@@ -74,6 +76,7 @@ document.getElementById('sfdc_btn').addEventListener('click', ()=>{
     url: `${base_uri}/services/data/v51.0/sobjects/Speaker__c?Content-Type=application/json&sObject=Speaker__c`,
     headers: { 
       'Authorization': 'Bearer 00D5f000003vd1P!ARUAQM_PXMDStCm6MClRaT6OTP1LnUb9gu7KzUWPFsysI9C4oVSfki6Xu5JHfYyb7qkANcBMHvKr.7cgqWwUeqChaujHR94D', 
+      'Access-Control-Allow-Origin': '*',
       'X-PrettyPrint': '1', 
       'Content-Type': 'application/json'
     },
@@ -85,6 +88,7 @@ document.getElementById('sfdc_btn').addEventListener('click', ()=>{
     url: `${base_uri}/services/data/v51.0/sobjects/Session__c?Content-Type=application/json&sObject=Session__c`,
     headers: { 
       'Authorization': 'Bearer 00D5f000003vd1P!ARUAQM_PXMDStCm6MClRaT6OTP1LnUb9gu7KzUWPFsysI9C4oVSfki6Xu5JHfYyb7qkANcBMHvKr.7cgqWwUeqChaujHR94D', 
+      'Access-Control-Allow-Origin': '*',
       'X-PrettyPrint': '1', 
       'Content-Type': 'application/json', 
     },
