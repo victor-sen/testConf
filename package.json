@@ -4,7 +4,7 @@
   "description": "This is a sample application that for the SE team at Provar.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js", 
+    "start": "node index.js", 
     "deploy": "npm run build && npm run start"
   },
   "repository": {
