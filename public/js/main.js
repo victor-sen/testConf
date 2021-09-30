@@ -1,5 +1,5 @@
 const SF_BASE_URI = `https://e2edemo.my.salesforce.com`
-const SF_BEARER_TOKEN = `00D5f000003vd1P!ARUAQG4SqhTqUu_6CevAnY5V79aQyleKslT2c.xhdDdeDYKR2_gQJrIGAKbaqrsb4__N5WW5k_3_IbhWO_RbuCtGgSRpJurY`
+const SF_BEARER_TOKEN = `00D5f000003vd1P!ARUAQHuoU5WkZf7WN_FHmwca2yvbgFxb_yVIMg6j_QQWXqURnLdmMkLoibP5jxyPeb4TGJ4AAQv.UWYVUblBgsKSHHjD5iIv`
 
 window.addEventListener('load', (event) => {
   var speaker_data = null;
