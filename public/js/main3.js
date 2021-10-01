@@ -1,6 +1,8 @@
-var axios = require('axios');
+// var axios = require('axios');
 // const dotenv = require('dotenv');
-var FormData = require('form-data');
+// var FormData = require('form-data');
+import axios from 'axios'
+import FormData from 'form-data'
 var data = new FormData();
 data.append('username', 'e2edemo@provartesting.com');
 data.append('password', 'Provar2021!!!Ul2LxNAOyzQLmj0G9GUtvW3F7');
