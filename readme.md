@@ -40,4 +40,28 @@ Within this repository you will need to update the `testConf/public/js/main.js` 
 
 #### 2. What to do in Github
 
-1. 
+1. First make sure you on the `master` branch and use the UI to navigate to `/public/js/main.js` file
+
+<p align="center"><img src="https://user-images.githubusercontent.com/8760590/135657297-779e37ad-0c00-4976-a2d4-409ed1f5f3f6.png" width="250"/></p>
+
+2. Here you can click the `pencil` (edit) button from the UI and make the required update. Click the pencil. 
+
+3. The UI will go into editor mode. Once in editor mode you need to delete the string following the word `SF_BEARER_TOKEN`. 
+
+4. Paste the new access_token string you received from Postman here in this file. 
+
+5. Scroll to the bottom of the UI and you will see a button to `Commit Changes`. No need to add any comments. Leave all default. Click this button. 
+
+<p align="center"><img src="https://user-images.githubusercontent.com/8760590/135662517-3a2234a8-152b-4cc7-bef9-fe51af93f3cc.png" width="250"/></p>
+
+----------
+
+##### What happens now? 
+
+There is an event listener, listening to the `master` branch of this repo on an AWS Code Pipeline. The pipeline will compile the changes and deploy to our target `www.testconfdemo.com` environment. So after making the updates above, there will need to be ~ 30 seconds to  account for the pipeline build. 
+
+<p align="center"><img src="https://user-images.githubusercontent.com/8760590/135663172-61e3b51c-6ddc-49c0-b739-6a8fbd3baffa.png" width="250"/></p>
+
+You can then process the demo. You can validate requests are occuring on the `https://www.testconfdemo.com/form#` by opening the Google Chrome developer tools on this page. On window load an initial request will fire -- the request will fail, but that is okay its just making the initial connection using `jsforce`. You can now populate the form with data and click "Submit". The console output of the Developer Tools should render a successful request signifying the an update has been made to Salesforce Org. 
+
+<p align="center"><img src="https://user-images.githubusercontent.com/8760590/135664152-458aa11e-73f1-4b58-ad9a-f52cb7e939ae.png" width="250"/></p>
