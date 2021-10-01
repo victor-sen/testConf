@@ -56,7 +56,7 @@ Within this repository you will need to update the `testConf/public/js/main.js` 
 
 ----------
 
-##### What happens now? 
+#### 3. What happens now? 
 
 There is an event listener, listening to the `master` branch of this repo on an AWS Code Pipeline. The pipeline will compile the changes and deploy to our target `www.testconfdemo.com` environment. So after making the updates above, there will need to be ~ 30 seconds to  account for the pipeline build. 
 
