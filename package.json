@@ -4,7 +4,7 @@
   "description": "This is a sample application that for the SE team at Provar.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js", 
+    "start": "node index.js",
     "deploy": "npm run build && npm run start"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "form-data": "^4.0.0",
     "jsforce": "^1.10.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12",
