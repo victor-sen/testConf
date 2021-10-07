@@ -158,6 +158,7 @@ app.get('/form', (req, res) => {
 			instanceUrl: conn.instanceUrl,
 			accessToken: conn.accessToken
 		};
+		
 		// Redirect to app main page
 		return response.redirect('/');
 	});

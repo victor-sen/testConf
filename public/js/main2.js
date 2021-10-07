@@ -18,12 +18,23 @@ var conn = new jsforce.Connection({
   version: process.env.apiVersion
 });
 
-// conn.login(process.env.SF_USERNAME, passwordString, function(err, userInfo) {
-//   if (err) { return console.error(err); }
-//   console.log(conn.accessToken);
-//   console.log(conn.instanceUrl);
-//   console.log("User ID: " + userInfo.id);
-//   console.log("Org ID: " + userInfo.organizationId);
-// });
+var conn = new jsforce.Connection({
+  oauth2 : {
+    clientId : process.env.SF_CLIENT_ID,,
+    clientSecret : process.env.SF_CLIENT_SECRET,
+    redirectUri : process.env.REDIRECT_URI
+  },
+  instanceUrl : process.env.SF_BASE_URI,
+  accessToken : '<your Salesforrce OAuth2 access token is here>',
+  refreshToken : '<your Salesforce OAuth2 refresh token is here>'
+});
+conn.on("refresh", function(accessToken, res) {
+  // Refresh event will be fired when renewed access token
+  // to store it in your storage for next request
+});
 
-console.log(conn);
+// Alternatively, you can use the callback style request to fetch the refresh token
+conn.oauth2.refreshToken(refreshToken, (err, results) => {
+  if (err) return reject(err);
+  resolve(results);
+});
